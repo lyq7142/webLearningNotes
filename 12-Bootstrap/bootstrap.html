@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- 禁止用户缩放-网站更像原生应用 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        .col-md-1 {
+            background-color: rgb(222, 103, 103);
+        }
+
+        .col-md-2 {
+            background-color: rgb(158, 158, 235);
+        }
+
+        .col-md-3 {
+            background-color: rgb(241, 241, 117);
+        }
+
+        .col-md-4,
+        .col-xs-4 {
+            background-color: rgb(149, 149, 149);
+            border: 1px solid red;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- 响应式布局（栅格系统） ：同一套页面可以兼容不同分辨率的设备
+            使用定义好的类class。
+            随屏幕尺寸增加，系统自动分为最多12列。
+        容器：相当于table (不能互相嵌套)
+            .container类：固定宽度 并支持响应式布局的容器，两边留白
+            .container-fluid类：100%宽度 ，占据全部视口的容器
+        行row：相当于tr
+            必须包含在容器中，以便赋予合适的排列aligment和内补padding
+        列column：元素在不同设备上所占格子数
+            col-设备代号-格子数
+            设备代号：xs超小屏幕（<768px）、 sm小屏幕(>=768px) 、md中等(>=992px) 、lg大屏幕(>=1200px)
+            内容放在列column内，只有column才能作为row的直接子元素。
+            给column设置padding，创建列之间的间隔gutter。
+            给.row设置负值margin，抵消给.container设置的padding，间接给行内的列抵消padding
+        一行内格子数超过12个，自动换行。
+        向上兼容，小屏幕属性适用于大屏幕。​ 如果设备宽度小于栅格类元素属性设置的最小宽度，那么一个元素会占满一行。
+        列偏移：.col-md-offset-*  将列向右侧偏移
+            .col-md-offset-4 类将 .col-md-4 元素向右侧偏移了4个列的宽度。
+        嵌套列：在已存在的列元素内，再添加一个新的row和一系列的列元素，不能超过12个
+        列排序： .col-md-push-*  .col-md-pull-*  改变列的顺序，push和offset类似
+            col-md-offset-3（在左侧补充3列） 
+            col-md-push-8（从左侧往右侧推8列） 
+            col-md-pull-2（往左侧拉2列）
+        语义化布局 Less mixin 变量
+    -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1">col-md-1</div>
+            <div class="col-md-2">col-md-2</div>
+            <div class="col-md-3">col-md-3</div>
+            <div class="col-md-4">col-md-4</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4 ">占4列</div>
+            <div class="col-xs-4 ">占4列</div>
+            <div class="col-xs-4 ">占4列</div>
+        </div>
+    </div>
+    <!-- 全局css样式 -->
+
+    <!-- 按钮 -->
+    <button class="btn">圆角灰色按钮</button>
+    <button type="button" class="btn btn-default">默认按钮</button>
+    <button type="button" class="btn btn-primary">提交按钮</button>
+    <button type="button" class="btn btn-success">成功按钮</button>
+    <button type="button" class="btn btn-info">信息按钮</button>
+    <button type="button" class="btn btn-warning">警告按钮</button>
+    <button type="button" class="btn btn-danger">危险按钮</button>
+    <button type="button" class="btn btn-link">链接按钮</button>
+    <button type="button" class="btn btn-lg">大按钮</button>
+    <button type="button" class="btn btn-sm">小按钮</button>
+    <button type="button" class="btn btn-xs">超小按钮</button>
+    <button type="button" class="btn btn-block">块级按钮</button>
+    <button type="button" class="btn active">被点击激活</button>
+    <button type="button" class="btn disabled">禁用按钮</button>
+    <br>
+    <!-- 图片 -->
+    <img src="./img/1.jpg" alt="xxx" class="img-rounded">//方形
+    <img src="./img/1.jpg" alt="xxx" class="img-circle">//圆形
+    <img src="./img/1.jpg" alt="xxx" class="img-thunbnail">//相框
+    <!-- 表格 -->
+    <table class="table table-hover table-bordered table-condensedtable-striped">
+        <tr>
+            <th>列名1</th>
+            <th>列名2</th>
+            <th>列名3</th>
+        </tr>
+        <tr class="info">
+            <td>列值1</td>
+            <td>列值2</td>
+            <td>列值3</td>
+        </tr>
+        <tr>
+            <td class="danger">列值1</td>
+            <td>列值2</td>
+            <td>列值3</td>
+        </tr>
+        <tr>
+            <td>列值1</td>
+            <td class="warning">列值2</td>
+            <td>列值3</td>
+        </tr>
+    </table>
+    <!-- 响应式表格，屏幕小会加上滚动条 -->
+    <div class="table-responsive">
+        <table class="table">
+            。。。。。。
+        </table>
+    </div>
+    <!-- 表单 -->
+    <form action="" method="get">
+        用户名：<input type="text" class="form-control">
+    </form>
+    <!-- 缩略语：鼠标悬停在缩写词上，会显示完整内容 -->
+    <!-- initialisn让字体小一点 -->
+    <abbr title="attribute" class="initialism">attr</abbr>
+    <!-- 引用 -->
+    <blockquote>cskdnbdv</blockquote>
+    <!-- 内联条：将所有元素放同一行 -->
+    <ul class="list-inline">
+        <li>1v</li>
+        <li>2dfb</li>
+    </ul>
+
+    <!-- 组件 -->
+
+    <!-- 导航条 -->
+    <nav class="navbar navbar-default ">
+        <button>首页</button>
+        <button>用户中心</button>
+    </nav>
+    <!-- 分页条 -->
+
+    <!-- 下拉功能导航栏 -->
+    <div class="btn-group">
+        <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Small button <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li>1</li>
+          <li>12</li>
+          <li>123</li>
+          <li>1234</li>
+        </ul>
+      </div>
+
+</body>
+
+</html>

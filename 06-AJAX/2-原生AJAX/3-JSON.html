@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON响应</title>
+    <style>
+        #result {
+            width: 200px;
+            height: 100px;
+            border: 1px solid #89b;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 键盘按键被按下，服务器返回结果写入result -->
+    <div id="result"></div>
+
+    <script>
+        const result = document.getElementById('result');
+        window.onkeydown = function () {
+            const xhr = new XMLHttpRequest();
+            // 设置响应体数据的类型（自动转换）
+            xhr.responseType = 'json';
+            //2.设置请求的方法和url
+            xhr.open('GET', 'http://127.0.0.1:8000/json-server');
+            //3.发送
+            xhr.send();
+            //4.事件绑定
+            xhr.onreadystatechange = function () {
+                //判断
+                if (xhr.readyState === 4) {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        // console.log(xhr.response);
+                        // result.innerHTML = xhr.response;
+
+                        // 手动转化数据
+                        // let data=JSON.parse(xhr.response);
+                        // console.log(data);
+                        // result.innerHTML = data.name;
+
+                        // 自动转换数据
+                        console.log(xhr.response);
+                        result.innerHTML = xhr.response.name;
+                    } else {
+
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

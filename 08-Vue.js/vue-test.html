@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+        <!-- <p>hello,{{name}}</p>
+        <p>{{description}},{{Date.now()}}</p>
+        <button @click="showInfo">提示信息</button>
+        <button @click="showInfo1($event,66)">提示信息1</button> -->
+        <!-- 姓：<input type="text" v-model="firstName">
+        名：<input type="text" v-model="lastName">
+        <span>{{fullName}}</span> -->
+        <!-- <a :href="url" x="hello">baidu</a>
+        <button @click="func1">按钮</button>
+        <button v-on:click="func1(a,b,c,d)">按钮</button> -->
+        <!-- <a href="http://www.baidu.com" @click.prevent="func0(event)">链接</a> -->
+        <!-- <input type="text" placeholder="按下回车提示输入" @keyup.esc="showInfo"> -->
+        <!-- <div class="basic" :class="mood" @click="changeMood">{{name}}</div> -->
+        <!-- <p v-show="a">welcome,{{name}}</p>
+        <div v-if="n===1">aaa</div>
+        <div v-else-if="n===2">bbb</div>
+        <div v-else>ccc</div> -->
+        <!-- <ul>
+            <li v-for="p in persons" :key="p.id">
+                {{p.name}}-{{p.age}}
+            </li>
+        </ul>
+        <ul>
+            <li v-for="(p,index) in persons" :key="index">
+                {{p.name}}-{{p.age}}
+            </li>
+        </ul> -->
+        男<input type="radio" v-model="sex" value="male" name="sex">
+        女<input type="radio" v-model="sex" value="female" name="sex">
+        你的选择: {{sex}}<br>
+        学习<input type="checkbox" v-model="hobby" value="study">
+        打游戏<input type="checkbox" v-model="hobby" value="game">
+        吃饭<input type="checkbox" v-model="hobby" value="eat">
+        {{hobby}}
+        <select v-model="city">
+            <option value=" ">请选择</option>
+            <option value="beijing">北京</option>
+            <option value="nanjing">南京</option>
+            <option value="hangzhou">杭州</option>
+        </select>
+        账号：<input type="text" v-model.trim="account">
+
+        <!-- <p>现在时间：{{time | timeFormater('YYYY_MM_DD') }}</p> -->
+
+        <div>{{name}}</div>  
+        <div v-text="name"></div>
+
+        <div v-html="str"></div>
+        
+        <div v-cloak>{{name}}</div>  
+
+
+    </div>
+    
+</body>
+
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+
+<script>
+    Vue.config.productionTip = false
+
+    const vm = new Vue({
+        el:'#root',
+        data:{
+            account:" ",
+            sex: "",
+            hobby:[],
+            city:" ",
+            // url:'http://www.baidu.com',
+            name:"lyq",
+            str:'<p>hello</p>'
+            // a:false,
+            // n:3,
+            // mood:'normal',
+            // arr:['a','b','c'],
+            // classObj:{
+            //     a:false,
+            //     b:false
+            // }
+            // description:"666"
+            // firstName:'张',
+            // lastName:'三'
+            // isHot: true,
+            // persons:[
+            //     {id:'001',name:'zhangsan',age:18},
+            //     {id:'002',name:'zzzzz',age:19},
+            //     {id:'003',name:'zzz',age:20}
+            // ]
+        },
+        methods:{
+            // showInfo(){
+            //     alert('hello');
+            // },
+            // showInfo1(event,number){
+            //     console.log(event,number);
+            // },
+            // fullName(){
+            //     return this.firstName+'-' +this.lastName;
+            // }
+            // func0(event){
+            //     console.log("阻止页面跳转");
+            // }
+        },
+        computed:{
+            fullName(){
+                return this.firstName+'-' +this.lastName;
+            }
+            // fullName:{
+            //     get(){
+            //         return this.firstName+'-' +this.lastName;
+            //     },
+            //     set(value){
+            //         console.log('set',value)
+            //         const arr = value.split('-')
+            //         this.firstName=arr[0]
+            //         this.lastName=arr[1]
+            //     }
+            // }
+        },
+        watch:{
+            // isHot:{
+            //     handler(newValue,oldValue){
+            //         console.log('被修改',newValue,oldValue)
+            //     }
+            // }
+
+        },
+        filters:{
+            // timeFormater(value){
+            //     return dayjs(value).format('YYYY年MM月DD日 HH:mm:ss')
+            // }
+
+        },
+   
+   
+    });
+
+    // vm.$mount('#root');
+
+    // new Vue({
+    //     el:'#root',
+    //     data(){
+    //         return{
+    //             name:"lyq",
+    //             description:"666"
+    //         }
+    //     }
+    // });
+
+// let number=18
+// let person={
+//     name:"lyq",
+//     sex:"nv",
+//     age:number
+// }
+// Object.defineProperty(person,"age",{
+//     // get(){
+//     //     return number;
+//     // }
+//     set(value){
+//         number=value;
+//     }
+// })
+// // nmber=22;
+// person.age=22;
+
+// // 数据代理
+// let obj={
+//     x:100
+// }
+// let obj2={
+//     y:200
+// }
+// Object.defineProperty(obj2,'x',{
+//     get(){
+//         return obj.x;
+//     },
+//     set(value){
+//         obj.x=value;
+//     }
+// })
+// Vue.filter('mySlice',function(value){
+//     return value.slice(0,4);
+// })
+
+</script>
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

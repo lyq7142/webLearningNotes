@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="1" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>姓名</th>
+                <th>年龄</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- js渲染出现数据 -->
+        </tbody>
+
+    </table>
+
+    <script>
+        var users = [{
+                id: 1,
+                name: 'lyq',
+                age: 18
+            },
+            {
+                id: 1,
+                name: 'fzd',
+                age: 30
+            },
+            {
+                id: 1,
+                name: 'aey',
+                age: 23
+            }
+        ]
+        // item是数组中的每一个对象 ，每个对象生成一个tr标签
+        var tbody = document.querySelector('tbody');
+        users.forEach(function (item) {
+            var tr = document.createElement('tr');
+            // 循环遍历item,生成td标签
+            for (var key in item) {
+                var td = document.createElement('td');
+                td.innerHTML = item[key];
+                // td标签插入tr标签内
+                tr.appendChild(td);
+            }
+            // tr插入tbody标签中
+            tbody.appendChild(tr);
+        })
+    </script>
+</body>
+
+</html>

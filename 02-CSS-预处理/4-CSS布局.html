@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- viewport是用户网页可视区域。
+        优化移动网页的常用meta标签如下，
+        width:控制viewport大小，device-width:设备屏幕宽度，
+        initial-scale=1.0初始缩放比例，
+        minimum-scale=0.5允许用户缩放的最小比例，
+        maximum-scale=2.0允许用户缩放的最大比例，
+        user-scalable用户是否可以手动缩放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>布局layout</title>
+</head>
+
+<body>
+    
+    <h3>响应式布局 Responsive design</h3>
+    <p>
+        实现不同屏幕分辨率的终端上浏览网页的不同展现方式。
+
+    </p>
+    <h3>自适应布局 Adaptive layout</h3>
+    <p>
+        开发多套页面来适应不同的终端。
+
+    </p>
+    <h3>流动式布局</h3>
+    <p>
+        用非固定像素定义网页内容（百分比布局）。
+        通过将盒子的宽度设置成百分比来根据屏幕的宽度伸缩，不受固定像素限制，内容向两侧填充。
+    </p>
+    <h3>弹性布局 flex</h3>
+    <p>
+        display:flex;
+        display:inline-flex;     //行内元素
+        display:-webkit-flex;     //safari
+        <br>
+        <!-- 设置为flex后，子元素的float clear vertical-align将失效 -->
+        <img src="./images/flex.png" alt="flex">
+        <br>
+        flex布局的元素---flex container   容器
+        所有子元素-------flex item        项目
+        <br>
+        项目默认水平主轴排列
+        水平主轴   main axis  （main start---main end）
+        垂直交叉轴 cross axis （cross start---cross end）
+        <br>
+        <h4>容器属性：</h4>
+        <div>flex-direction</div> （默认）row 左到右 ，column 上到下 
+        <div>flex-wrap</div>（默认）nowrap 不换行，wrap 换行到下方
+        <div>flex-flow</div>前两个简写，(默认)row nowrap
+        <div>justify-content</div>项目在主轴对齐方式，(默认)flex-start 左对齐，center 居中，space-betweem 两端对齐
+        <div>align-items</div>项目在交叉轴对齐方式，（默认）stretch 全占满，baseline,其它同上
+        <div>align-content</div>多根轴线对齐方式，(默认)stretch
+        <br>
+        <h4>项目属性：</h4>
+        <div>order</div>
+        <div>flex-grow</div>
+        <div>flex-shrink</div>
+        <div>flex-basis</div>
+        <div>flex</div>
+        <div>align-self</div>   
+    </p>
+    <a href="https://ruanyifeng.com/blog/2015/07/flex-grammar.html">更多flex...</a>
+
+</body>
+
+</html>

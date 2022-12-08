@@ -1,0 +1,469 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+i {
+    /*倾斜文字变直，倾斜italic*/
+    font-style: normal;
+}
+
+a {
+    /*去除下划线等装饰线; underline下划线*/
+    text-decoration: none;
+}
+
+ul {
+    /* 去除li前面的圆点 */
+    list-style: none;
+}
+
+.p1 {
+    font-style: italic;  /*文字倾斜*/
+    font-weight: 700;
+    font-size: 20px;
+    /* 默认：微软雅黑（网页常用 无衬线sans-serif）; 
+    如果没有雅黑，就会选黑体... */
+    font-family: 微软雅黑, 黑体, sans-serif;
+}
+
+.p2 {
+    /* 复合写法：style weight size / line-height family */
+    font: normal 400 16px/1.5 微软雅黑;
+    /*只能省略前两个; 行高1.5倍字大小*/
+    font: 16px/1.5 微软雅黑;
+    /*1em：一个字的大小*/
+    text-indent: 2em;
+    /*行高（上间距+字大小+下间距）; 1.5：1.5倍字大小，1：取消上下间距*/
+    line-height: 1.5;
+    /*应用：单行文本 垂直居中：line-height=父元素高度*/
+    line-height: 32px;
+}
+
+h3 {
+    /*水平居中，字在h3里，给父元素加*/
+    text-align: center;
+}
+
+.box1 {
+    width: 100px;
+    height: 100px;
+    /* 标签div水平居中，平分剩余空间*/
+    margin: 0 auto;  
+    /* 内容（图文...）居中 */
+    text-align: center;
+    /*alpha透明度 0-1，背景色默认rgba（0，0，0，0）全透明*/
+    background-color: rgb(149, 190, 235, .5);
+}
+
+/*  后代选择器 div p  
+    子代选择器 div>p  
+    并集选择器 div,p  
+    交集选择器 div.box1  div#id 
+    hover伪类选择器  div:hover  */
+
+.box2 {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    background-image: url(images/photo04.jpg);
+    background-color: rgb(218, 166, 244);
+}
+
+.box3 {
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    background-image: url(images/photo04.jpg);
+
+    /* 背景不平铺，只显示一个图（默认平铺） */
+    background-repeat: no-repeat;
+    /* 背景图位置：左中右 上中下（默认00左上）*/
+    background-position: center;
+    /* 坐标：像素 向右下移动
+     background-position: 100px 50px; */
+    background: rgb(236, 188, 188) url(images/photo04.jpg) no-repeat center;
+}
+
+/* 显示模式：块级( 宽度默认父级100%，可设置宽高，独占一行）
+            行内（宽度默认内容撑开，不能设宽高，一行可显示多个）
+            行内块（可以设置宽高，一行显示多个）
+ */
+.box4 {
+    background-color: #ade6e6;
+    /* 块级转为行内块元素：不独占一行 */
+    display: inline-block;
+    width: 200px;
+    height: 100px;
+}
+
+span {
+    background-color: rgb(201, 155, 247);
+    /* 行内转为块级：独占一行且可设宽高 */
+    display: block;
+    width: 300px;
+    height: 60px;
+}
+
+.baidu {
+    width: 200px;
+}
+
+/*  盒子模型*/
+.box5 {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(246, 188, 231);
+    text-align: center;
+    /* 版心居中（网页有效内容） */
+    margin: 0 auto;
+    /* 内边距和border 都会把盒子撑大 ；可以用来撑开导航不同文字*/
+    padding: 20px;
+    /* 自动内减，盒子不会被边距撑大 */
+    box-sizing: border-box;
+    /* solid实线，dotted点线，dashed虚线 */
+    border: 5px dashed rgb(103, 210, 229);
+    /* 圆角边框 */
+    border-radius: 10px 20px 50px;
+}
+
+/* 外边距折叠现象
+（合并）： 
+垂直布局的块元素，上下margin会合并，不会叠加，最终距离为更大的margin值
+解决：只给一个盒子设置margin
+（塌陷）：
+两个嵌套的块级元素，子元素的上外边距会作用在父元素上，导致父元素一起下移
+解决：  1.父元素设置border-top或padding-top
+        2.父元素设置overflow:hidden  (推荐)
+        3.转为行内块
+        4.设置浮动
+        5.父元素加clearfix类 
+            .clearfix::before{
+                content:'';
+                display:table;
+            }
+        ...
+
+行内元素内外边距问题：
+  span加margin或padding 垂直方向top,bottom不生效，水平方向可以。
+解决：直接用行高line-height来改
+*/
+
+/* 结构伪类选择器：查找父级选择器中的子元素
+:first-child        第一个子元素
+:last-child         最后一个子元素
+:nth-child()        第n个子元素
+:nth-last-child()   倒数第n个子元素
+
+n：1、2、3、4...
+常见公式：
+偶数：even,2n
+奇数：2n+1,2n-1,odd
+前五个：-n+5
+*/
+.ul1 li {
+    line-height: 40px;
+}
+
+.ul1 li:nth-child(4n) {
+    background-color: rgb(236, 187, 187);
+}
+
+.ul1 li:nth-child(3n) {
+    background-color: rgb(181, 243, 228);
+}
+
+/* 伪元素：css创建标签效果，应用：装饰的小图标
+（必须添加content属性才生效，伪元素默认是行内元素，宽高不生效）
+::before    在父元素内容最前添加伪元素
+::after     在父元素内容最后添加伪元素
+*/
+.box6 {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(158, 162, 232);
+}
+
+.box6::before {
+    content: "lll";
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(229, 111, 211);
+
+}
+
+.box6::after {
+    background-color: rgb(229, 111, 211);
+    content: 'rrr';
+}
+
+/* 标准流：标签默认排列规则
+块级从上往下，独占一行
+行内或行内块从左往右，空间不够自动折行
+*/
+
+/* 浮动：让块级元素完美的在一行排列
+(如果转为行内块，代码不在一行，产生一个空格的间距，代码可读性差)
+浮动元素会脱标，不占原位置，但是文字覆盖不了
+下一个浮动元素在上一个浮动元素后面 左右浮动，顶部对齐
+浮动后的标签具备行内块特点，可设置宽高，一行排列多个
+浮动元素不能通过 text-align:center 或 margin:0 auto居中
+*/
+.one {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(146, 242, 146, .5);
+    float: left;
+}
+
+.two {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(146, 176, 242, .5);
+    float: left;
+}
+
+.three {
+    width: 300px;
+    height: 300px;
+    background-color: rgb(245, 145, 145);
+}
+
+/* 清除浮动：清除浮动带来的影响（子级浮动，父级没有高度时，后面的标准流受影响）
+1.给父元素加高度
+2.额外标签法：在父元素内容最后 加一个块级元素，给其添加clear:both;
+3.单伪元素清除法：用伪元素代替了额外标签，和额外标签法原理一样
+4.双伪元素清除法：可以清浮动，也可以解决外边距塌陷问题
+5.父元素设置overflow:hidden;
+*/
+
+.father {
+    width: 300px;
+    background-color: rgb(173, 233, 140);
+    /* 清除浮动方法5 */
+    overflow: hidden;
+}
+
+.leftbox {
+    float: left;
+    width: 50px;
+    height: 100px;
+    background-color: rgb(226, 175, 124);
+}
+
+.rightbox {
+    float: right;
+    width: 130px;
+    height: 80px;
+    background-color: rgb(117, 155, 216);
+}
+
+.box7 {
+    width: 300px;
+    height: 50px;
+    background-color: rgb(226, 112, 219);
+}
+
+/* 额外标签法：清除左右两侧浮动的影响*/
+.clearfix {
+    clear: both;
+}
+
+/* 单伪元素清除法 */
+.clearfix::after {
+    content: '';
+    /* 伪元素默认是行内 */
+    display: block;
+    clear: both;
+    /* 补充代码：为了兼容性 */
+    height: 0;
+    visibility: hidden;
+}
+
+/* 双伪元素清除法：before作用是解决外边距塌陷问题 */
+.clearfix::before,
+.clearfix::after {
+    content: '';
+    /* 转成表格的显示模式 */
+    display: table;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+/* 定位： position:盒子之间层叠
+        相对定位relative
+        绝对定位absolute
+        固定定位fixed
+        静态定位static
+    偏移值：left\right, top\bottom    就近选择，如果都写，以left top为准
+ */
+
+/* 相对定位relative: 相对于原位置移动，不脱标 ，小范围移动
+    绝对定位absolute: 相对于非静态定位的父元素进行移动，脱标
+                      改变标签显示模式特点 具备行内块特点
+                      父级（就近逐层向外查找）有定位，以父级为参照物；
+                      父级没定位，以浏览器窗口为参照定位
+        =>子绝父相
+    居中：（绝对定位的盒子不能用margin auto居中）
+        1.水平居中 left: 50%; margin-left: - 盒子宽度的一半;
+        垂直居中 top: 50%; margin-top: - 盒子高度的一半；
+        2.位移 transform: translate(-50%,-50%)  移动自己宽高的一半，
+        只宽度居中，只写一个值（-50%）
+
+    固定定位fixed: 相对于浏览器可视区域（窗口）进行定位移动，脱标，具备行内块特点
+    
+    元素层级关系： 
+        标准流 < 浮动 < 定位
+        z-index: 值越大，越在上面（默认值 0）必须配合定位才生效
+ */
+
+/* 垂直对齐：(浏览器遇到行内和行内块标签当作文字（基线对齐）处理)
+vertical-align:(默认)baseline 基线对齐，top 顶端对齐,middle,bottom
+*/
+.pic1 {
+    /* 给大的标签加该属性 */
+    vertical-align: middle;
+}
+/* 让一个不设置宽高的盒子垂直水平居中：
+    1.父盒子flex布局
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    2.子绝父相
+        父 position:relative;
+        子  position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+    3.table-cell
+        父 display:table-cell;
+            text-align:center;
+            vertical-align:middle;
+        子 display:inline-block;
+           vertical-align:middle;
+*/
+
+/*  消除图片底部空隙：
+由于浏览器把图片当文字，基线对齐处理，所以底部多出一小块 
+   解决：
+    1.img{vertical-align: middle;}
+    2.img{display:block;}
+    3.box{line-height:0;}
+    4.img{display:flex;font-size:0;}
+*/
+.fa1 {
+    width: 250px;
+    background-color: rgb(251, 162, 162);
+}
+
+/* 图在固定大小的盒子里:
+    垂直居中：
+        盒子加个line-height: 盒子高度；
+        图加个vertical-align: middle;
+    水平居中:
+        text-align: center;
+*/
+
+/* 光标类型：cursor
+    default:箭头（默认）
+    pointer:手
+    text: 文字
+    move:移动，十字光标
+*/
+
+/* 圆角边框 应用：
+    圆形: border-radius: 50%;
+    胶囊型: border-radius: 高度的一半;
+*/
+.box8 {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(128, 218, 235);
+    border-radius: 50%;
+}
+
+.box9 {
+    width: 200px;
+    height: 100px;
+    background-color: rgb(224, 145, 237);
+    border-radius: 50px;
+}
+
+/* 溢出部分显示效果overflow: （盒子内容部分超出范围区域）
+    visable  默认 可见
+    hidden   隐藏(常用)
+    scroll   无论是否溢出，都显示滚动条
+    auto     溢出显示滚动条，不溢出不显示
+*/
+.box10 {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(134, 241, 152);
+    overflow: hidden;
+}
+
+/* 元素本身隐藏(在屏幕中不可见)：
+1.visability: hidden;  占位隐藏，少用，不脱标
+2.display: none;    脱标不占位，常用
+*/
+.box11 img {
+    display: none;
+}
+
+.box11 a:hover img {
+    display: inline-block;
+}
+
+/* 元素整体（包括字、图）透明度opacity:0~1;   
+        1 完全不透明，0 全透明
+*/
+/* 精灵图：多张小图合成大图，减少服务器发送次数。提高页面加载速度
+    1.创建盒子 尺寸与小图一样
+    2.将精灵图设为盒子背景图background-image: url()
+    3.修改背景图位置:
+      测量小图左上角坐标，分别取 负值 设置给盒子background-position: x y 
+ 
+   背景图大小：background-size:宽 高;
+        像素     常用
+        百分比   相对于当前盒子宽高百分比
+        contain 包含，等比例缩放，直到不会超出盒子最大，盒子可能留白
+        cover   覆盖，等比例缩放，刚好填满盒子，图可能显示不全
+*/
+
+/* 盒子阴影：box-shadow:水平 垂直偏移量 模糊度 （大小）（ 颜色）（内部阴影）*/
+.box12 {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(139, 233, 149);
+    margin: 0 auto;
+    box-shadow: 2px 2px 10px 2px rgb(152, 152, 152);
+}
+
+/* 过渡：transition: 属性 时长 ;  
+   属性可以是all/width/color/height...
+    默认状态与hover状态不同时，才有过渡效果
+    该属性给过渡的元素本身加
+*/
+.box12 {
+    /* transition: width 1s, background-color 1s; */
+    transition: all 1s;
+}
+
+.box12:hover {
+    width: 200px;
+    background-color: rgb(169, 100, 232);
+}
+
+/* SEO（搜索引擎优化）:让网站在搜索引擎上的排名靠前
+        1.竞价排名
+        2.网页做成.html后缀
+        3.标签语义化...
+   SEO三大标签:
+        title  标题
+        description 描述
+        keywords  关键词
+*/

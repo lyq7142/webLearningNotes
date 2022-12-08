@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html5表单验证</title>
+</head>
+
+<body>
+    <form action="" method="post" enctype="multipart/form-data" autocomplete="on">
+        <input type="file"> <br>
+        <label for="username">用户名</label>
+        <input type="text" id="username" name="user" placeholder="请输入用户名" required /><br>
+        <label for="number">工号</label>
+        <input type="text" id="number" name="gonghao" placeholder="请输入工号" pattern="^\d{5}[imooc]$" /><br>
+        
+        <input type="text" list="tips" placeholder="请选择">
+        <datalist id="tips">
+            <option value="ee0e"></option>
+            <option value="ee1e"></option>
+            <option value="ee2e"></option>
+            <option value="ee3e"></option>
+        </datalist>
+        <br>
+        <label for="woman">
+            <input type="radio" name="sex" id="woman" required>女
+        </label>
+        <label for="man">
+            <input type="radio" name="sex" id="man" required>男
+        </label>
+        <br>
+        <input type="submit">
+    </form>
+    <p>
+        html5自带验证美化，伪类和css选择器：
+        :required    :optional
+        :in-range    :out-of-range
+        :valid       :invalid
+        :read-only   :read-write
+    </p>
+
+    <p>
+        html5约束验证API：<br>
+        1.willValidate属性//是否符合元素约束<br>
+        <b>2.validity属性//元素当前验证状态，是否验证成功</b><br>
+        3.validationMessage属性//描述元素相关约束的失败信息<br>
+        <b>4.checkValidity()方法//元素是否满足它的任意约束<br>
+        5.setCustonValidity()方法//设置自定义验证信息</b> <br>
+    </p>
+    <p>validity:
+        <form action="" method="post">
+            用户名： <input type="text" name="username" id="username" placeholder="请输入" required pattern="^\d{4}$"><br>
+            搜索：<input type="search" id="search" value=""><br>
+            数字：<input type="number" id="numbers"><br>
+            邮箱：<input type="email" id="emails" value="lyq"><br>
+            学号：<input type="text" required pattern="^\d{4}$" oninput="checkit(this)" placeholder="请输入4个数字">
+            <input type="submit" value="提交">
+        </form>
+    </p>
+
+    <script>
+        // var username =    document.getElementById(username);  === id名
+        console.log(username.validity);
+        console.log(search.validity);
+        console.log(numbers.validity);
+        console.log(emails.validity);
+        if (username.checkValidity()) {
+            console.log("是一个邮箱");
+        } else {
+            console.log("不是一个邮箱");
+        }
+        function checkit(obj) {
+            console.log(obj.validity);
+            var it = obj.validity;
+            if (true === it.valueMissing) {
+                obj.setCustomValidity("不能为空！！");
+            } else {
+                if (true == it.patternMismatch) {
+                    obj.setCustomValidity("必须是四个数字！！");
+                } else {
+                    obj.setCustomValidity("");
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

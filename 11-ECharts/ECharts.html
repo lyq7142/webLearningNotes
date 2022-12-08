@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 1.引入 echarts.js -->
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+  <!-- echarts：百度开源js图标库 -->
+    <!-- 2. 准备有宽高的容器DOM -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+
+    <script type="text/javascript">
+        // 3. 初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+  
+        // 4. 指定图表的配置项和数据
+        var option = {
+          title: {
+            text: '标题',
+          },
+          tooltip: {  //提示信息
+
+          },
+          legend: {   //图例组件（控制系列的标记、颜色、名字、是否显示）
+            data : [{
+                name : '系列1',
+                icon : 'circle',     //circle rect roundRect triangle...
+              },
+              {
+                name : '系列2',
+                icon : 'roundRect',
+              },
+            ]
+          },
+          xAxis: {    //x轴显示项
+            data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+          },
+          yAxis: {},
+          series: [   //系列列表
+            {
+              name: '系列1',
+              type: 'bar',  //系列图表类型
+              data: [5, 20, 36, 10, 10, 20],  //系列中数据内容
+            },
+            {
+              name: '系列2',
+              type: 'line',  
+              data: [15, 2, 23, 40, 5, 34],
+            },
+          ]
+        };
+  
+        // 5. 使用指定的配置项和数据显示图表
+        myChart.setOption(option);
+      </script>
+</body>
+</html>

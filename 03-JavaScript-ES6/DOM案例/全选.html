@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            width: 100px;
+            padding: 20px;
+            border: 1px solid pink;
+            margin: 30px auto;
+            border-radius: 5px;
+        }
+
+        hr {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        全选：<input type="checkbox" name="" id=""> <br>
+        <hr>
+        <input type="checkbox" name="" id="">选项一 <br>
+        <input type="checkbox" name="" id="">选项二 <br>
+        <input type="checkbox" name="" id="">选项三 <br>
+        <input type="checkbox" name="" id="">选项四 <br>
+    </div>
+
+    <script>
+        var allBtn = document.querySelector('input');
+        var items = document.querySelectorAll('input:nth-child(n+2)');  // n: 0,1,2,3  n+2->2,3,4,5
+        // 1.点了全选框，下面的复选框全被选中
+        allBtn.onclick = function () {
+            var type = allBtn.checked;
+            for (var i = 0; i < items.length; i++) {
+                items[i].checked = type;
+            }
+            // 2.下面的复选框全部都选中，全选框才能被选中
+            for (var i = 0; i < items.length; i++) {
+                items[i].onclick = function () {
+                    var flag = true;   //控制全选按钮是否选中
+                    for (var j = 0; j < items.length; j++) {
+                        if (items[j].checked === false) {
+                            flag = false;
+                            break;   // 有按钮没选中，就退出循环 不用再判断，提高效率
+                        }
+                    }//如果复选框全选中，不执行if，checked值是true,全选框被选中
+                    allBtn.checked = flag;
+                }
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

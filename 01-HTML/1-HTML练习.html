@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html标签</title>
+</head>
+
+<body>
+    <h1>h1</h1>
+    <h3>h3</h3>
+    <h6>h6</h6>
+    
+    <hr>
+    <p>段落1 最新前端开发入门教程，web前端零基础html5 +css3+前端项目视频教程</p>
+    <p>段落2 最新前端开发入门教程，web前端零基础html5 +css3+前端项目视频教程</p>
+    <hr>
+
+    <b>b </b>
+    <u>u </u>
+    <i>i </i>
+    <s>s </s>
+    <br>
+    <!-- 语义更强烈 -->
+    <strong> strong</strong>
+    <ins> ins</ins>
+    <em> em</em>
+    <del> del</del>
+
+    <hr>
+    <img src="img/baidu.jpg" alt="图不显示时显示字" title="鼠标悬停图上显示文字" width="100">
+    <br>
+
+    <!-- href：跳转地址 ； target：_self（默认，覆盖原网页）| _blank（新窗口跳转）-->
+    <a href="https://www.baidu.com/" target="_blank">百度链接</a>
+    <hr>
+    
+    <!-- controls：显示播放控件 ； loop：循环  -->
+    <!-- autoplay：自动播放(一些浏览器不让)  -->
+    <audio src="./media/music.mp3" controls loop autoplay></audio>
+    <!-- autoplay：自动播放（谷歌要配合muted静音才行） -->
+    <video src="./media/video.mp4" controls autoplay muted></video>
+
+    <hr>
+    <!-- 无序 -->
+    <ul>
+        <li>apple</li>
+        <li>banana</li>
+    </ul>
+    <!-- 有序 -->
+    <ol>
+        <li>apple</li>
+        <li>orange</li>
+    </ol>
+    <!-- 自定义 -->
+    <dl>
+        <dt>fruit:</dt>
+            <dd>apple</dd>
+            <dd>orange</dd>
+    </dl>
+
+    <hr>
+                        <!-- 合并相邻边框 collapse-->
+    <table border="1" style="border-collapse: collapse;">   
+        <caption>表格标题</caption>
+        <tr>
+            <th>0 1</th>
+            <th>0 2</th>
+            <th>0 3</th>
+        </tr>
+        <tr>
+            <td>1 1</td>
+            <td>1 2</td>
+            <td>1 3</td>
+        </tr>
+        <tr>
+            <td>2 1</td>
+            <td>2 2</td>
+            <td>2 3</td>
+        </tr>
+    </table>
+
+    <!-- 合并单元格colspan rowspan：左上原则，删除其它 -->
+    <table border-width="1">
+        <caption>表格标题</caption>
+        <tr>
+            <th>0 1 </th>
+            <th colspan="2">0 2</th> <!-- 跨列合并，水平合并 -->
+            <!-- <th>0 3</th> -->
+
+        </tr>
+        <tr>
+            <td>1 1</td>
+            <td rowspan="2">1 2</td> <!-- 跨行合并，垂直合并 -->
+            <td>1 3</td>
+        </tr>
+        <tr>
+            <td>2 1</td>
+            <!-- <td>2 2</td> -->
+            <td>2 3</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <form action="1.php" method="post" name="form1">
+        用户名：<input type="text" name="" id="" placeholder="邮箱/手机号/用户名"> <br>
+        密码：<input type="password" name="" id="" placeholder="请输入密码"> <br>
+        
+        性别：
+        <input type="radio" name="sex" id="">男
+        <input type="radio" name="sex" id="" checked>女 <br>
+
+        爱好：
+        <input type="checkbox" name="favor" id="">swim
+        <input type="checkbox" name="favor" id="">read
+        <input type="checkbox" name="favor" id="">learn <br>
+
+        上传文件：<input type="file" name="" id=""> <br>
+        上传多个文件：<input type="file" name="" id="" multiple> <br>
+
+        出生日期：
+        <input type="date" name="" id=""> <br>
+        
+        <input type="checkbox" name="agree" id="" checked>我同意<a href="#">注册条款</a> <br>
+
+        <!-- 提交和重置 要在表单域form中才能用 -->
+        <input type="submit">
+        <input type="submit" value="提交交交！">
+        <input type="reset">
+        <input type="button" value="普通按钮"> <br>
+        <!-- button -->
+        <button type="submit">提交交</button>
+        <button type="reset">重置</button>
+        <button type="button">普通按钮</button>
+        <button>提交</button>
+        <!--谷歌默认button：提交--> <br>
+
+        <!-- 下拉菜单select,默认显示第一个option北京，可以selected显示其它的 -->
+        地区：
+        <select name="s1" id="" >
+            <option value="">北京</option>
+            <option value="" selected>南京</option>
+            <option value="">深圳</option>
+        </select>
+        <br>
+        简介：
+        <textarea name="" id="" cols="30" rows="5" style="resize: none;vertical-align:top;"></textarea>
+        <br>
+        <!-- label包裹文本，增加点击面积，两种方法 -->
+        性别：
+        <label for="man"><input type="radio" name="sex" id="man">男</label>
+        <label for="woman"><input type="radio" name="sex" id="woman">女</label>
+
+    </form>
+
+    <hr>
+    <!-- 无语义布局标签 -->
+    <div class=""> div独占一行</div>
+    <div class="">div独占一行</div>
+    <span> span一行显示 </span>
+    <span> span一行显示 </span>
+    <!-- 有语义 // h5 移动端 -->
+    <header>头</header>
+    <nav>导航</nav>
+    <aside>侧边栏</aside>
+    <section>区块</section>
+    <article>文章</article>
+    <footer>底</footer>
+
+</body>
+</html>

@@ -1,0 +1,339 @@
+/* 字体图标 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+.car {
+    width: 200px;
+    margin: 50px auto;
+    font-size: 12px;
+}
+
+.orange {
+    color: #f40;
+}
+
+/* 平面转换：transform 实现元素的位移、旋转、缩放效果 */
+
+/* 平移 transform: translate(水平,垂直); 右下为正数 */
+.father {
+    position: relative;
+    width: 500px;
+    height: 300px;
+    margin: 100px auto;
+    border: 1px solid #000;
+}
+
+.son {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 200px;
+    height: 100px;
+    background-color: pink;
+    transition: all 0.5s;
+    /* %是son盒子自身尺寸的百分比 */
+    transform: translate(-50%, -50%);
+    /* 如果只给一个值：translateX()或 translateY()   */
+}
+
+/* 位移案例 */
+.box1 {
+    width: 1366px;
+    height: 600px;
+    margin: 0 auto;
+    background: url(images/bg.jpg);
+    overflow: hidden;
+}
+
+.box1::before,
+.box1::after {
+    float: left;
+    content: '';
+    width: 50%;
+    height: 600px;
+    background-image: url(images/baidu.jpg);
+    transition: all 0.5s;
+}
+
+.box1:hover::before {
+    transform: translateX(-100%);
+}
+
+.box1::after {
+    background-position: right 0;
+}
+
+.box1:hover::after {
+    transform: translateX(100%);
+}
+
+/* 旋转 transform: rotate(180deg)  度数单位deg，正数是顺时针
+   如果转一圈，一定得加transition，不然看不到效果  */
+.box2 img {
+    transition: all 0.5s;
+}
+
+.box2 img:hover {
+    transform: rotate(180deg);
+}
+
+/* 转换原点 transform-origin: 水平 垂直 ,默认盒子中心是圆点 */
+.box3 img {
+    transform-origin: left top;
+    transition: all 0.5s;
+}
+
+.box3 img:hover {
+    transform: rotate(360deg);
+}
+
+/* 多重转换  transform: translateX(px) rotate(deg); */
+.box4 {
+    width: 800px;
+    height: 200px;
+    border: 1px solid #000;
+}
+
+.box4 img {
+    width: 200px;
+    transition: all 6s;
+}
+
+.box4:hover img {
+    /* 顺序不能换，因为旋转会改变坐标轴指向 ；
+    也不能分开写，会原地打转，transform样式会被覆盖*/
+    transform: translateX(600px) rotate(360deg);
+}
+
+/* 缩放 transform:scale(x轴缩放倍数，y轴倍数) 
+   只设置一个值，x和y轴等比例缩放 */
+.box5 {
+    width: 300px;
+    height: 210px;
+    margin: 100px auto;
+    border: 1px solid #000;
+    overflow: hidden;
+}
+
+.box5 img {
+    width: 100%;
+    transition: all 0.5s;
+}
+
+.box5:hover img {
+    transform: scale(1.2);
+
+}
+
+.box6 {
+    width: 249px;
+    height: 210px;
+    margin: 50px auto;
+    overflow: hidden;
+}
+
+.box6 li:hover .pic::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.box6 p {
+    color: #3b3b3b;
+    padding: 10px 10px 0 10px;
+}
+
+.box6 img {
+    width: 100%;
+}
+
+.box6 .pic {
+    position: relative;
+}
+
+.box6 .pic::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* margin-left: -29px;
+    margin-top: -29px; */
+    content: '';
+    width: 58px;
+    height: 58px;
+    background-image: url(../images/play.png);
+    transition: all .5s;
+    transform: translate(-50%, -50%) scale(5);
+    opacity: 0;
+}
+
+/* 渐变背景 */
+.box7 {
+    width: 300px;
+    height: 212px;
+    position: relative;
+}
+
+.box7 img {
+    width: 100%;
+}
+
+.box7 .title {
+    position: absolute;
+    left: 15px;
+    bottom: 20px;
+    z-index: 2;
+    width: 260px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.box7 .mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 212px;
+    background-image: linear-gradient(transparent, rgba(0, 0, 0, .5));
+    opacity: 0;
+    transition: all .5s;
+}
+
+.box7:hover .mask {
+    opacity: 1;
+}
+
+/* perspective：实现透视效果，近大远小
+    加给父级，一般800-1200px      */
+.box88 {
+    perspective: 1000px;
+}
+
+.box8 {
+    width: 200px;
+    height: 200px;
+    margin: 100px auto;
+    background: pink;
+    transition: all .5s;
+}
+
+.box8:hover {
+    transform: translate3d(50px, 100px, -200px);
+    /* transform: translateZ(200px); */
+}
+
+/* 左手法则：左手握住旋转轴，拇指指向正值（右下外），
+手指弯曲方向为旋转正值方向 */
+.box9 {
+    width: 300px;
+    margin: 100px auto;
+}
+
+.box9 img {
+    width: 300px;
+    transition: all 2s;
+}
+
+.box9 img:hover {
+    transform: rotateX(180deg);
+    transform: rotateY(180deg);
+    transform: rotateZ(180deg);
+    /* 了解  rotate3D：自定义旋转坐标轴位置，xyz取0-1之间 */
+    transform: rotate3D(， ，);
+}
+
+/* 立体呈现 transform-style: preserve-3d;
+加在父级，（默认值flat，子元素处于2D平面呈现）
+*/
+.cube {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 100px auto;
+    transition: all 2s;
+    transform-style: preserve-3d;
+}
+
+.cube div {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 200px;
+}
+
+.cube .front {
+    background-color: rgb(223, 160, 238);
+    transform: translateZ(200px);
+}
+
+.cube .back {
+    background-color: rgb(153, 241, 211);
+}
+
+.cube:hover {
+    transform: rotateY(180deg);
+}
+
+/* 动画 animation
+     最小单元：帧 
+定义动画：
+ 方法1.
+    @keyframes 动画名{
+        from{}
+        to{}
+    }
+ 方法2：百分比（动画总时长的占比）
+    @keyframes 动画名{
+        0%{}
+        10%{}
+        15%{}
+        100%{}
+    }
+使用动画：加到需要变化的地方
+    animation: 动画名 动画时长;
+*/
+/*
+动画复合属性(前两个属性必须有，取值不分顺序)
+animation: 动画名  动画时长  速度曲线 延迟时间 重复次数 方向 执行完毕时状态;
+
+ 速度曲线（一般不用）
+    linear匀速
+    steps(3)逐帧动画
+ 重复次数
+     3：重复3次播放
+     infinite：无限循环
+ 动画方向
+    alternate（常用）：f反向执行
+ 执行完毕时状态（取消 重复次数 和 动画方向 属性）
+    backwards（默认）：动画停留在第一帧状态
+    forwards：最后一帧状态
+*/
+.box10 {
+    width: 200px;
+    height: 100px;
+    background-color: pink;
+    animation: change 1s infinite alternate;
+}
+
+@keyframes change {
+    from {
+        width: 200px;
+    }
+
+    to {
+        width: 600px;
+    }
+}
+

@@ -1,0 +1,33 @@
+/*!************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src/index.js!./src/index.css ***!
+  \************************************************************************************************************/
+body {
+  margin: 0;
+}
+body #title {
+  color: white;
+}
+#box1 {
+  width: 100px;
+  height: 100px;
+  background-image: url(../imgs/ebd704855f.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  backface-visibility: hidden;
+}
+#box2 {
+  width: 200px;
+  height: 200px;
+  background-image: url(../imgs/36d737a06a.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+#box3 {
+  width: 300px;
+  height: 300px;
+  background-image: url(../imgs/e571f26f1e.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
