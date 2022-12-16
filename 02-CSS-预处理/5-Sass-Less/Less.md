@@ -26,7 +26,7 @@ div{
 ```less
 @my-selector: banner;
 
-.@ {my-selector} {
+.@{my-selector} {
     margin:0 auto;
 }
 

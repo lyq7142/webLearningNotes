@@ -4,7 +4,7 @@
     canvas绘画
     video audio媒介回放
     本地离线存储
-    语义化标签（article header nav section footer）
+    语义化标签（article header nav aside section footer）
     表单控件（calendar date time email url search）
 
 * 移除元素：

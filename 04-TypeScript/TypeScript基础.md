@@ -5,7 +5,7 @@
 以js为基础构建的javaScript的超集语言。
 TS---编译--->JS    // TS不能被js解析器直接执行，TS扩展了js并添加了类型
 TS增加了：类型、支持ES的新特性、ES不支持的新特性、配置选项、开发工具
-使用： tsc  1.hello.ts   //执行后，同级目录下会编译出一个同名.js文件
+使用： tsc  hello.ts   //执行后，同级目录下会编译出一个同名.js文件
 
 ## 类型声明
 
@@ -35,8 +35,8 @@ b = 'hello';
 let d: any;
 let d;     //不指定类型时，ts解析器自动判断类型为any(隐式)
 
-* unkonwn：未知类型的值，实际上就是类型安全的any
-let e: unkonwn;
+* unknown：未知类型的值，实际上就是类型安全的any
+let e: unknown;
 e = 'hello';
 let s: string;
 s = e;  // unknown类型的变量，不能直接赋值给其它变量

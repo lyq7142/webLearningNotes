@@ -52,7 +52,7 @@ typeof function(){}   //function
 
 * instanceof检测复杂数据类型
 指定一个特定类型，判断这个构造函数的原型是否在给定对象的原型链上。
-null instanceof Object   //false
+null instanceof Object    //false
 undefined instanceof Object   //false
 因为null和undefined的类型就是自己本身，不是object创建出来的。
 // 基本类型中：number string boolean。字面量值不能用instanceof检测，但构造函数创建的值可以。

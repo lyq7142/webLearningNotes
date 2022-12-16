@@ -37,7 +37,6 @@ align-content: flex-start | flex-end | center | space-between | space-around | s
 order: -1;
 <!-- margin:auto 垂直水平居中 -->
 margin: auto;
-
 ```
 
 ### 多媒体查询

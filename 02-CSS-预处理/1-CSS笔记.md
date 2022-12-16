@@ -66,7 +66,7 @@ link引入的样式权重大于@import引入的样式。
   color: #fff ;     /*十六进制，RGB，颜色名*/
   text-align: center ;     /*文本水平对齐，left right justify两端对齐 auto默认*/
   text-decoration: none ;       /*设置或去除装饰线，overline underline*/
-  text-transform: uppercase;     /*转换大小写，lowercase小写 captyalize单词首字母大写*/
+  text-transform: uppercase;     /*转换大小写，lowercase小写， captyalize单词首字母大写*/
   text-indent: 2em ;       /*文本首行缩进，2em缩进元素2个字大小，可以是px*/
   line-height: 26px ;      /*文本高度 默认16px，上下间距各5px，总共26px，单位可px、不写、% */
   letter-spacing: 2px;     /*字符间距*/
@@ -100,7 +100,7 @@ link引入的样式权重大于@import引入的样式。
   * 转换为行内元素       display: inline;
   * 转换为行内块元素     display: inline-block;
 
-* 可替换元素：一般有内置尺寸和宽高比，显示的内容由元素的标签和属性确定的，如img显示的内容实际上就是由src属性的值读取图片的信息并展示的，iframe,video,embed,img，input都是可替换元素。
+* 可替换元素：一般有内置尺寸和宽高比，显示的内容由元素的标签和属性确定的，如img显示的内容实际上就是由src属性的值读取图片的信息并展示的，iframe,video,embed,img,input都是可替换元素。
 几乎所有替换元素都是行内元素，替换元素有内在尺寸，所以可以设置width和height。如果不设置其宽度和高度时，就按照其内在尺寸显示。
 
 * 空void元素：没有内容的元素，在开始标签就关闭的元素，不成对出现的标签，如 br hr img input link meta
@@ -154,7 +154,7 @@ before、after创建一个元素，但属于行内元素，在dom tree中找不�
 ## 伪类 和 伪元素 的区别
 
 1. 伪类
-其核⼼就是⽤来选择DOM树之外的信息,不能够被普通选择器选择的⽂档之外的元素，⽤来添加⼀些选择器的特殊效果。⽐如:hover :active :visited :link :visited :first-child :focus :lang等
+其核⼼就是⽤来选择DOM树之外的信息,不能够被普通选择器选择的⽂档之外的元素，⽤来添加⼀些选择器的特殊效果。⽐如:hover :active :visited :link :first-child :focus :lang等
 由于状态的变化是⾮静态的，所以元素达到⼀个特定状态时，它可能得到⼀个伪类的样式；当状态改变时，它⼜会失去这个样式。
 由此可以看出，它的功能和class有些类似，但它是基于⽂档之外的抽象，所以叫 伪类。
 2. 伪元素
@@ -180,10 +180,10 @@ ol有序：
 ## 表格
 
 ```css
-border: 1px solid red;    //边框
-border-collapse: collapse;    //折叠表格边框，变成单一边框
-text-align: center;      //left right   水平对齐
-vertical-align: bottom;      //middle top   垂直对齐
+border: 1px solid red;        // 边框
+border-collapse: collapse;    // 折叠表格边框，变成单一边框
+text-align: center;           // left right   水平对齐
+vertical-align: middle;       // bottom top   垂直对齐
 ```
 
 ## CSS三大特性
@@ -196,11 +196,11 @@ vertical-align: bottom;      //middle top   垂直对齐
 ### 2 继承性
 
 * 子继承父的某些属性
-  行内元素可以继承： font系列 文本系列color line-height...（除text-indent,text-align之外）
+  行内元素可以继承： font系列 文本系列 color line-height...（除text-indent,text-align之外）
   块级元素可以继承：text-indent text-align
   所有元素都可继承：visibility cursor
   
-特殊：a标签的color  h1-6的font-size属性 会继承失效
+特殊：a标签的color  h1-h6的font-size属性 会继承失效
 
 行高继承：可以没有单位
   父  font: 12px/1.5 Arial;  //行高：元素文字大小的1.5倍
@@ -229,8 +229,8 @@ a:hover 的权重 0，0，1，1     // 元素0001和伪类0010叠加
 ## 盒子模型 box model
 
 margin  border  padding  content
-css盒模型：标准模型+ IE模型
-标准模型：盒子总宽度= width + padding + boder + margin
+css盒模型：标准w3c模型 + IE模型
+标准模型：盒子总宽度= width + padding + border + margin
 IE盒模型：盒子总宽度= width + margin   (width包括padding和border)
 <!-- css3新增 -->
 `box-sizing: content-box;`   //（默认）标准盒模型
@@ -282,8 +282,7 @@ box-shadow: h-shadow v-shadow blur spread color inset ;
   padding: 5px 10px ;            /*上下，左右*/
   padding: 5px 10px 20px ;       /*上，左右，下*/
   padding: 5px 10px 20px 30px；  /*上右下左*/
-  margin: 10px;   
-  /*同上*/
+  margin: 10px;     /*同上*/
 ```
 
 * 边界重叠：两个或多个盒子(可能相邻也可能嵌套)的相邻边界(其间没有任何非空内容、补白、边框)重合在一起而形成一个单一边界。
@@ -342,7 +341,7 @@ clear: both;  // 同时清除左右两侧浮动的影响
 4.父级添加双伪元素（推荐）
 
 ```css
-.clearfix:before, .clear:after {   /*在大盒子内部左右都放盒子 防止浮动*/
+.clearfix:before, .clearfix:after {   /*在大盒子内部左右都放盒子 防止浮动*/
   content: "";
   display: table;
   /* line-height: 0;  */

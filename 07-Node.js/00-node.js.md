@@ -40,7 +40,7 @@ fs.writeFile(file,data[,options],callback)  //data要写入的数据
 相对路径容易出现路径动态拼接错误问题  
 //代码运行时，会以执行node命令时所处的目录，动态拼接出被操作文件的完整路径。
 解决：
-    写成绝对路径。反斜杠要写成两个，或者改成斜杠。C:\\Users\\.....    --->移植性差，不利于维护
+    写成绝对路径。反斜杠写成两个，或者改成斜杠。C:\\Users\\.....    --->移植性差，不利于维护
     path.join(__dirname ,'./files/1.txt')        //__dirname 表示当前文件所处的目录(双下划线)
 
 * 同步文件写入：
@@ -148,7 +148,7 @@ server.on('request',(req,res)=>{   //客户端请求server，会触发request事
     res.setHeader('Content-Type','text/html; charset=utf-8')  //设置响应头Content-Type的值，解决中文乱码
     res.end(str2)   //发送中文时会乱码，要手动设置编码格式
 })
-server.listen(80,()=>{     //启动web服务器
+server.listen(80,() => {     //启动web服务器
     console.log('http server running at http://127.0.0.1')
 })
 ```
@@ -253,7 +253,7 @@ exports.sayName=function(){
 math.js文件：
 exports.add = function(a,b){
     return a+b;
-}
+};
 ```
 
 * 模块标识：可以找到指定的模块，  ./math就是一个模块标识。

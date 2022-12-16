@@ -4,7 +4,6 @@
 
 node -v
 npm -v   |   cnpm -v (使用镜像，可以用cnpm替代npm的地方)
-    <!-- npm install -g cnpm –registry=https://registry.npm.taobao.org -->
 
 ## 2 vue环境
 
@@ -118,6 +117,6 @@ vue -V
 
 用vue-cli创建项目时，自动创建了本地仓库->直接推送远程
 
-新建远程仓库
 git remote add origin 仓库地址
-git push -u origin master   //初次推送，以后直接git push
+git banch -M main
+git push -u origin main   //初次推送，以后直接git push

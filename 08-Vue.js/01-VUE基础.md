@@ -40,11 +40,11 @@ VM：就是vue实例本身，双向绑定了V和M。将view绑定到model上，v
 借鉴Angular的模板和数据绑定技术；借鉴React的组件化和虚拟DOM技术。
 
 * 周边库：
-    vue-cli     //vue脚手架
+    vue-cli      //vue脚手架
     vue-resource
     axios
     vue-router   //路由
-    vuex    //状态管理
+    vuex         //状态管理
     element-ui   //基于vue的UI组件库（PC端）
 
 ## 创建vue对象，vue插值语法
@@ -386,7 +386,7 @@ data:{
 
 ## 条件渲染 v-if v-show
 
-v-if （动态控制节点是否存在）适用于切换频率低的场景，不展示的DOM元素直接被移除，结构不能被打断
+v-if （动态控制节点是否存在）适用于切换频率低的场景，不展示的DOM元素直接被移除，结构不能被打断  
     v-if ="表达式"
     v-else-if ="表达式"
     v-else="表达式"
@@ -430,7 +430,6 @@ new Vue({
         }
     }
 })
-
 </script>
 ```
 

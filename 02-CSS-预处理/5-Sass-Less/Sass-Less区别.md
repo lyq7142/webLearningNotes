@@ -6,7 +6,7 @@
 * Sass/Scss
 Sass (Syntactically Awesome Stylesheets)是一种动态样式语言，Sass语法属于缩排语法，比css比多出很多功能(如变量、嵌套、运算、混入(Mixin)、继承、颜色处理、函数等)，更容易阅读。
 由于不能将css代码加到Sass里，所以语法进行了改良，Sass3就变成了Scss(sassy css)，与原来的语法兼容，只是用{}取代原来的缩进。sass没有{} 和 ; 有严格的 缩进规范（与css一致）。
-Sass版本3.0之前后缀是.sass，3.0之后后缀是.scss。
+Sass版本3.0之前 后缀是.sass，3.0之后 后缀是.scss。
 
 * Less
 Less也是一种动态样式语言。对CSS赋予了动态语言的特性，如变量，继承，运算， 函数。
